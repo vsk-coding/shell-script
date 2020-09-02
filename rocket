@@ -88,7 +88,7 @@ case $1 in
         echo
         echo "create a folder with project name to get started :)"
         echo -e "\nAvailabe keywords are : "
-        echo -e "1. initiate\n2. countdown\n"
+        echo -e "1. initiate\n2. countdown\n3. delete"
         echo -e "\nUsage: "
         echo "rocket initiate FOLDER_NAME"
         echo "rocket countdown FOLDER_NAME"
@@ -154,20 +154,23 @@ case $1 in
             fi
         fi
         ;;
-esac
 
-echo
-echo "Do you widh to purge all knowlege of the project?"
-echo "Choose wisely!! [Y/N]"
-read choice
+        delete | DELETE | Delete )
+            echo
+            echo "Do you widh to purge all knowlege of the project?"
+            echo "Choose wisely!! [Y/N]"
+            read choice
 
-case $chice in
-    yes | YES | Yes | y | Y )
-        chmod +x remove-trace
-        ./remove-trace
-    ;;
+            case $choice in
+                yes | YES | Yes | y | Y )
+                    chmod +x remove-trace
+                    ./remove-trace
+                ;;
     
-    no | NO | No | N | n | "" )
-        echo "Very Well then. See you soon!!"
-    ;;
+                no | NO | No | N | n | "" )
+                    echo "Very Well then. See you soon!!"
+                ;;
+            esac
+
+        ;;
 esac
