@@ -10,6 +10,12 @@ space () {
     done
 
 }
+star () {
+    for (( i=0; i<$1; i++ ))
+    do
+        printf "!"
+    done
+}
 
 lift () {
     for (( i=0; i<$1; i++ ))
@@ -68,7 +74,7 @@ lift_func() {
     space 6
     printf "@@@@@@@@@@"
 
-    lift 10
+    lift 20
 
 }
 
@@ -95,9 +101,10 @@ case $1 in
             echo "Oh no! Project name not found"
         else
             touch upcount
-            echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+            star $((`echo $2 | wc -c`+21))
+            echo
             echo '!' $2 "MISSION INITIATED !"
-            echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+            star $((`echo $2 | wc -c`+21))
         fi
         ;;
 
@@ -110,9 +117,11 @@ case $1 in
             if [ ! -d "$2" ] || [ "$2" = "" ]; then
                 echo "Oh no! Project name not found"
             else
-                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                star $((`echo $2 | wc -c`+21))
+                echo
                 echo '!' $2 "MISSION COUNTDOWN !"
-                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                star $((`echo $2 | wc -c`+21))
+                echo
                 for (( i=10; i>=0; i-- ))
                 do
                     printf "\t   $i\n"
@@ -138,7 +147,7 @@ case $1 in
                     sleep 1
                 done
                 lift_func
-                echo "misssion $1 successfull"
+                echo "misssion $2 successfull"
             fi
         fi
         ;;
