@@ -155,3 +155,19 @@ case $1 in
         fi
         ;;
 esac
+
+echo
+echo "Do you widh to purge all knowlege of the project?"
+echo "Choose wisely!! [Y/N]"
+read choice
+
+case $chice in
+    yes | YES | Yes | y | Y )
+        chmod +x remove-trace
+        ./remove-trace
+    ;;
+    
+    no | NO | No | N | n | "" )
+        echo "Very Well then. See you soon!!"
+    ;;
+esac

@@ -10,5 +10,9 @@ to delete every trace run remove-trace file
 chmod +x remove-trace
 ./remove-trace
 
+    OR
+
+simply go with with flow ;)
+
 enjoy have fun
 
