@@ -27,7 +27,7 @@ lift () {
 
 lift_func() {
 
-    lift 6
+    lift 3
 
     space 10
     printf "/\\"
@@ -74,7 +74,7 @@ lift_func() {
     space 6
     printf "@@@@@@@@@@"
 
-    lift 20
+    lift 40
 
 }
 
@@ -93,6 +93,7 @@ case $1 in
         echo "rocket initiate FOLDER_NAME"
         echo "rocket countdown FOLDER_NAME"
         echo -e "\n\nCaution!! Do follow the pattern"
+        echo
         ;;
 
     initiate | Initiate | INITIATE)
@@ -105,6 +106,7 @@ case $1 in
             echo
             echo '!' $2 "MISSION INITIATED !"
             star $((`echo $2 | wc -c`+21))
+            echo
         fi
         ;;
 
@@ -148,6 +150,7 @@ case $1 in
                 done
                 lift_func
                 echo "misssion $2 successfull"
+                echo
             fi
         fi
         ;;
