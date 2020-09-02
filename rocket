@@ -1,0 +1,145 @@
+#!/bin/bash
+
+
+
+space () {
+
+    for (( i=0; i<$1; i++ ))
+    do
+        printf " "
+    done
+
+}
+
+lift () {
+    for (( i=0; i<$1; i++ ))
+    do
+        sleep 1
+        printf "\n"
+    done
+}
+
+lift_func() {
+
+    lift 6
+
+    space 10
+    printf "/\\"
+    echo
+    space 9
+    printf "/  \\"
+    echo
+    space 8
+    printf "/    \\"
+    echo
+    space 7
+    printf "/      \\"
+    echo
+    space 6
+    printf "/________\\"
+    echo
+    space 6
+    printf "|        |"
+    echo
+    space 6
+    printf "|        |"
+    echo
+    space 6
+    printf "|        |"
+    echo
+    space 6
+    printf "|        |"
+    echo
+    space 6
+    printf "|        |"
+    echo
+    space 6
+    printf "|        |"
+    echo
+    space 6
+    printf "|________|"
+    echo
+    space 6
+    printf "/\\  /\\  /\\"
+    echo
+    space 6
+    printf "/\\  /\\  /\\"
+    echo
+    space 6
+    printf "@@@@@@@@@@"
+
+    lift 10
+
+}
+
+case $1 in
+    help | Help | -h | "")
+        echo -e "\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo "!!                         !!"
+        echo "!! Welcome to help Section !!"
+        echo "!!                         !!"
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo
+        echo "create a folder with project name to get started :)"
+        echo -e "\nAvailabe keywords are : "
+        echo -e "1. initiate\n2. countdown\n"
+        echo -e "\nUsage: "
+        echo "rocket initiate FOLDER_NAME"
+        echo "rocket countdown FOLDER_NAME"
+        echo -e "\n\nCaution!! Do follow the pattern"
+        ;;
+
+    initiate | Initiate | INITIATE)
+
+        if [ ! -d "$2" ] || [ "$2" = "" ]; then
+            echo "Oh no! Project name not found"
+        else
+            touch upcount
+            echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+            echo '!' $2 "MISSION INITIATED !"
+            echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+        fi
+        ;;
+
+    countdown | Countdown | COUNTDOWN )
+        if [ ! -f "upcount" ]; then
+            echo "Oh no! Looks like you cheated"
+            echo "Please initiate the project before countdown"
+        else
+            rm upcount
+            if [ ! -d "$2" ] || [ "$2" = "" ]; then
+                echo "Oh no! Project name not found"
+            else
+                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                echo '!' $2 "MISSION COUNTDOWN !"
+                echo '!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                for (( i=10; i>=0; i-- ))
+                do
+                    printf "\t   $i\n"
+                    echo
+                    sleep 1
+                done
+                echo
+                echo
+                echo
+                echo
+                sleep 1
+                printf "\tsequence complete"
+                echo 
+                sleep 2
+                echo
+                echo
+                printf "\tlift off in"
+                echo
+                for (( i=3; i>=0; i-- ))
+                do
+                    printf "\t     $i\n"
+                    echo
+                    sleep 1
+                done
+                lift_func
+                echo "misssion $1 successfull"
+            fi
+        fi
+        ;;
+esac

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo chmod +x rocket
+sudo mv rocket /bin/ 
